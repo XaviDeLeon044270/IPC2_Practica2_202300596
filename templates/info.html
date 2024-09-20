@@ -1,29 +1,129 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Proyecto 2</title>
+    <title>Practica 2</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            background-image: url('static/images/fondo.jpg'); 
+            background-size: cover;
+            background-position: center;
+        }
+        .center-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 56px);
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 50px;
+        }
+        h2 {
+            margin-bottom: 90px; 
+        }
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.8) !important;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">Proyecto 2</a>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav mr-auto">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand">SUPER AUTOS GT</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/archivo">Archivo</a>
+                    <a class="nav-link" href="/agregar">Agregar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/reportes">Reportes</a>
+                    <a class="nav-link" href="/registro">Registro</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/ayuda">Ayuda</a>
+                    <a class="nav-link" href="/info">Info</a>
                 </li>
             </ul>
         </div>
     </nav>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2>Autos Registrados</h2>
+                <!-- Bloque para mostrar el mensaje de error -->
+                {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endif %}
+                <!-- Bloque para mostrar el mensaje de éxito -->
+                {% if success %}
+                <div class="alert alert-success" role="alert">
+                    {{ success }}
+                </div>
+                {% endif %}
+                <!-- Fin de los bloques para mostrar los mensajes -->
+                <form method="POST">
+                    <div class="row">
+                        <!-- Columna izquierda -->
+                        <div class="col-md-5 ml-n3">
+                            <div class="form-group row">
+                                <label for="tipo" class="col-sm-2 col-form-label" style="position: relative; left: -30px;">Tipo</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="tipo" name="tipo">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="marca" class="col-sm-2 col-form-label" style="position: relative; left: -30px;">Marca</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="marca" name="marca">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="modelo" class="col-sm-2 col-form-label" style="position: relative; left: -30px;">Modelo</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="modelo" name="modelo">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="precio" class="col-sm-2 col-form-label" style="position: relative; left: -30px;">Precio</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="precio" name="precio">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="cantidad" class="col-sm-2 col-form-label" style="position: relative; left: -30px;">Cantidad</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="cantidad" name="cantidad">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Columna vacía -->
+                        <div class="col-md-1"></div>
+                        <!-- Columna derecha -->
+                        <div class="col-md-6 ml-3">
+                            <div class="form-group">
+                                <label for="descripcion">Descripción</label>
+                                <textarea class="form-control" id="descripcion" name="descripcion" rows="5"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="urlImagen">URL Imagen</label>
+                                <input type="text" class="form-control" id="urlImagen" name="urlImagen">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Botón de registro -->
+                    <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Registrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
