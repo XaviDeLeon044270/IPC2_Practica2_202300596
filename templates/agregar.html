@@ -73,36 +73,36 @@
                 </div>
                 {% endif %}
                 <!-- Fin de los bloques para mostrar los mensajes -->
-                <form method="POST">
+                <form action="{{url_for('agregar')}}" method="POST">
                     <div class="row">
                         <!-- Columna izquierda -->
                         <div class="col-md-5 ml-n3">
                             <div class="form-group row">
-                                <label for="tipo" class="col-sm-2 col-form-label" style="position: relative; left: -50px;">Tipo</label>
+                                <label for="tipo" class="col-sm-2 col-form-label" style="position: relative; left: -50px;">idTipoAuto:</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="tipo" name="tipo">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="marca" class="col-sm-2 col-form-label" style="position: relative; left: -50px;">Marca</label>
+                                <label for="marca" class="col-sm-2 col-form-label" style="position: relative; left: -50px;">Marca:</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="marca" name="marca">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="modelo" class="col-sm-2 col-form-label" style="position: relative; left: -50px;">Modelo</label>
+                                <label for="modelo" class="col-sm-2 col-form-label" style="position: relative; left: -50px;">Modelo:</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="modelo" name="modelo">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="precio" class="col-sm-2 col-form-label" style="position: relative; left: -50px;">Precio</label>
+                                <label for="precio" class="col-sm-2 col-form-label" style="position: relative; left: -50px;">Precio:</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="precio" name="precio">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="cantidad" class="col-sm-2 col-form-label" style="position: relative; left: -50px;">Cantidad</label>
+                                <label for="cantidad" class="col-sm-2 col-form-label" style="position: relative; left: -50px;">Cantidad:</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="cantidad" name="cantidad">
                                 </div>
@@ -113,11 +113,11 @@
                         <!-- Columna derecha -->
                         <div class="col-md-6 ml-3">
                             <div class="form-group">
-                                <label for="descripcion" style="margin-left: 35px;">Descripción</label>
+                                <label for="descripcion" style="margin-left: 35px;">Descripción:</label>
                                 <textarea class="form-control" id="descripcion" name="descripcion" rows="5" style="width: 125%;"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="urlImagen" style="margin-left: 35px;">URL Imagen</label>
+                                <label for="urlImagen" style="margin-left: 35px;">URL Imagen:</label>
                                 <input type="text" class="form-control" id="urlImagen" name="urlImagen" style="width: 125%;">
                             </div>
                         </div>
