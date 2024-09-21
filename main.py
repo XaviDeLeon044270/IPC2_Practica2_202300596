@@ -38,7 +38,10 @@ class MyApp:
                 descripcion = request.form.get('descripcion')
                 urlImagen = request.form.get('urlImagen')
 
-                if any(auto.tipo == tipo for auto in Auto.obtenerAutos()):
+                if not tipo or not marca or not modelo or not precio or not cantidad or not descripcion or not urlImagen:
+                    error = 'Todos los campos deben estar completos.'
+                    session['error'] = error
+                elif any(auto.tipo == tipo for auto in Auto.obtenerAutos()):
                     error = 'Ya existe un auto con el mismo idTipoAuto.'
                     session['error'] = error
                 else:
