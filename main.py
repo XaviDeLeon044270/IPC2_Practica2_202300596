@@ -3,8 +3,6 @@ from clases import Auto
 
 app = Flask(__name__)
 
-
-
 app.secret_key = 'clave'
 
 @app.route('/', methods=['GET', 'POST'])
